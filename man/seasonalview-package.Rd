@@ -2,24 +2,23 @@
 % Please edit documentation in R/seasonalview-package.R
 \docType{package}
 \name{seasonalview-package}
-\alias{seasonalview}
 \alias{seasonalview-package}
+\alias{seasonalview}
 \title{Graphical User Interface for Seasonal Adjustment}
 \description{
 A graphical user interface to the seasonal package and 
 X-13ARIMA-SEATS, the U.S. Census Bureau's seasonal adjustment software. The
 seasonalview package unifies the code base of 
-\url{http://www.seasonal.website} with the GUI in the seasonal package.
+\url{http://www.seasonal.website} with the GUI in the \pkg{seasonal} package.
 }
 \details{
 Have a look at the README for usage examples: 
-\url{https://github.com/christophsax/seasonalview}
-}
-\author{
-Christoph Sax \email{christoph.sax@gmail.com}
+\url{https://CRAN.R-project.org/package=seasonalview/README.html}
 }
 \seealso{
 \code{\link{view}} for the main function of seasonalview.
 }
+\author{
+Christoph Sax \email{christoph.sax@gmail.com}
+}
 \keyword{package}
-

@@ -1,8 +1,8 @@
 Package: seasonalview
 Type: Package
 Title: Graphical User Interface for Seasonal Adjustment
-Version: 0.2
-Date: 2017-02-11
+Version: 0.3
+Date: 2017-05-04
 Author: Christoph Sax
 Maintainer: Christoph Sax <christoph.sax@gmail.com>
 Description: A graphical user interface to the 'seasonal' package and
@@ -15,8 +15,8 @@ Imports: shinydashboard (>= 0.5.3), shiny (>= 0.14), dygraphs (>=
 License: GPL-3
 URL: http://www.seasonal.website
 BugReports: https://github.com/christophsax/seasonalview
-RoxygenNote: 6.0.0
+RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2017-02-11 12:06:18 UTC; christoph
+Packaged: 2017-05-04 12:36:20 UTC; christoph
 Repository: CRAN
-Date/Publication: 2017-02-11 13:30:37
+Date/Publication: 2017-05-04 15:39:34 UTC

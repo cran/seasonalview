@@ -33,7 +33,7 @@ if (on.website){
   ql <- shiny::parseQueryString(qstr)
   if (!is.null(ql$call)){
     txt <- ql$call
-    call <- try(as.call(parse(text = txt)[[1]]))
+    call <- try(as.call(parse(text = txt)[[1]]), silent = TRUE)
     if (inherits(call, "try-error")){
       z <- call
     } else {
@@ -62,7 +62,7 @@ shiny::observe({
 
     if (at == "R"){
       txt <- shiny::isolate(input$iTerminal)
-      call <- try(as.call(parse(text = txt)[[1]]))
+      call <- try(as.call(parse(text = txt)[[1]]), silent = TRUE)
       if (inherits(call, "try-error")){
         z <- call
       } else {
@@ -182,18 +182,7 @@ output$oTerminal <- shiny::renderUI({
   m <- rModel$seas
   cstr <- seasonalview:::format_seascall(m$call)
   shiny::tagList(
-  shiny::tags$textarea(id="iTerminal", class="form-control", rows = 10, cols=60, cstr),
-    # auto extending the textarea (a bit hacky)
-    shiny::HTML('
-    <script>
-        $(document).ready(function(){
-            $("#iTerminal").on("keyup keydown", function(){
-              this.style.height = "2px";
-              this.style.height =  this.scrollHeight + "px";
-            })
-        })
-    </script>
-    ')
+    shiny::tags$textarea(id="iTerminal", class="form-control", cstr)
   )
 })
 
@@ -202,17 +191,7 @@ output$oTerminalX13 <- shiny::renderUI({
   m <- rModel$seas
   cstr <- seasonal:::deparse_spclist(m$spc)
   shiny::tagList(
-  shiny::tags$textarea(id="iTerminalX13", style = "min-height: 692px;", class="form-control", cols=60, cstr),
-      shiny::HTML('
-    <script>
-        $(document).ready(function(){
-            $("#iTerminalX13").on("keyup", function(){
-              this.style.height = "2px";
-              this.style.height =  this.scrollHeight + "px";
-            })
-        })
-    </script>
-    ')
+    shiny::tags$textarea(id="iTerminalX13", class="form-control", cstr)
   )
 })
 
@@ -314,7 +293,7 @@ shiny::observe({
 # show error msg on error
 shiny::observe({
   if (rError$msg == "") return(NULL)
-  rawerr <- seasonal:::err_to_html(rError$msg)
+  rawerr <- seasonalview:::err_to_html(rError$msg)
   irev <- shiny::HTML('<button id="iRevert" type="button" class="btn action-button btn-danger" style = "margin-right: 4px; margin-top: 10px;">Revert</button>')
   error.id <<- shiny::showNotification(shiny::HTML(rawerr), action = irev, duration = NULL, type = "error")
 })

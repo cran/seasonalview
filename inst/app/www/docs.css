@@ -10,10 +10,17 @@
 
 /*dynamic textareu, to work with JS in server.R (hacky) */
 textarea {
-    resize: none;
-    overflow: hidden;
-    min-height: 184px;
-    max-height: 800px;
+    resize: vertical;
+    overflow-y: scroll;
+    min-height:200px;
+}
+
+/*no softwraps only works well on webkit browsers, it removes all newlines in others*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  textarea {
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
 }
 
 /*more space in shiny notfications*/
